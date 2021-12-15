@@ -10,8 +10,9 @@ exports.addUser = async(req, res)=>{
         res.status(500).send({message: "Unseccessful, please try again"})
     }
 };
-//esperando encontrar 
+// 
 exports.updateUser = async (req, res) =>{
+   
     try{
        await User.findByIdAndUpdate(req.body._id, req.body)
         updateUser = await User.findById(req.body._id);
@@ -24,7 +25,7 @@ exports.updateUser = async (req, res) =>{
 exports.listUsers = async(req, res) =>{
     try{   
         user = await User.find({});
-        res.status(200).send({message:"List os users: ", user}) 
+        res.status(200).send({message:"List of users: ", user}) 
     }catch(err){
         console.log(err)
     }
@@ -38,3 +39,5 @@ exports.deleteUser = async(req,res) =>{
         console.log(err)
     }
 }
+
+
