@@ -14,9 +14,9 @@ exports.addUser = async(req, res)=>{
 exports.updateUser = async (req, res) =>{
    
     try{
-       await User.findByIdAndUpdate(req.body._id, req.body)
+       await User.findByIdAndUpdate(req.body._id, req.body);
         updateUser = await User.findById(req.body._id);
-        res.status(200).send({message:"Successfully updated user", updateUser})
+        res.send({message:"Successfully updated user", updateUser});
     }catch(err){
         console.log(err) 
     }
